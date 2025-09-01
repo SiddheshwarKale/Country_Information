@@ -46,5 +46,85 @@
     <input type="text" class="country" placeholder="Enter a country name" />
     <button class="info-btn">Get Info</button>
     <div class="view-info"></div>
+
+    <script>
+      const countryName = {
+        india: {
+          Name: "India",
+          Image:
+            "https://5.imimg.com/data5/SELLER/Default/2023/12/370478461/YK/RI/SX/5650316/indian-national-polyester-flag.jpeg",
+          Capital: "Delhi",
+          Currency: "Indian Rupee (₹)",
+          Language:
+            "Hindi and English officially (plus 21 other recognized languages)",
+          FamousPlace: "Varanasi,Taj Mahal,Goa Beaches",
+          FunFact:
+            "India is the world's largest democracy and home to the world’s oldest living city, Varanasi.",
+        },
+        japan: {
+          Name: "Japan",
+          Image:
+            "https://media.istockphoto.com/id/1360807875/photo/japanese-state-flag-waving-on-the-wind.jpg?s=612x612&w=0&k=20&c=vLcmUymOB6Wo_-_DrCClT2Hvxvr4ACBnY894W8MiBJU=",
+          Capital: "Tokyo",
+          Currency: "Yen (¥)",
+          Language: "Japanese",
+          FamousPlace: "Mount Fuji",
+          FunFact: "Japan has vending machines for almost everything!",
+        },
+        australia: {
+          Name: "Australia",
+          Image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdV_k5m87oM0X5RqXgxnzqeLJwlvRg1fvDdg&s",
+          Capital: "Canberra",
+          Currency: "Australian Dollar (AUD $)",
+          Language: "English (official)",
+          FamousPlace: "Great Barrier Reef",
+          FunFact: "Australia is home to more kangaroos than people!",
+        },
+        france: {
+          Name: "France",
+          Image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_h9XfcZfYK7aqW46YA23xFTbTCnSZ3i83-A&s",
+          Capital: "Paris",
+          Currency: "Euro (€)",
+          Language: "French (official)",
+          FamousPlace: "Eiffel Tower",
+          FunFact:
+            "France is the most visited country in the world, welcoming over 80 million tourists every year.",
+        },
+        thailand: {
+          Name: "Thailand",
+          Image:
+            "https://www.krabivillas.com/upload/blog/un1s26yq8k_thailandflagphoto.jpg",
+          Capital: "Bangkok",
+          Currency: "Thai Baht (฿)",
+          Language: "Thai (official)",
+          FamousPlace: "Grand Palace",
+          FunFact:
+            "Thailand is known as the 'Land of Smiles' because of its friendly and welcoming people.",
+        },
+      };
+
+      const countrySearch = document.querySelector(".country");
+      const getInfo = document.querySelector(".info-btn");
+      const viewInfo = document.querySelector(".view-info");
+
+      getInfo.addEventListener("click", function () {
+        const inputValue = countrySearch.value.toLowerCase();
+        const countryDetails = countryName[inputValue];
+        if (!countryDetails) {
+          alert("Wrong Country");
+        } else {
+          viewInfo.innerHTML = `<div class="All"><img class='image' src = "${countryDetails.Image}" alt="${countryDetails.Name}" height = "200px; padding:2px 8px;">
+         <h1 style = "color: #4a0099; padding:0px 8px;"><u>${countryDetails.Name}</u></h1>
+         <h2 style = "color:#cc0000; padding:0px 8px;">${countryDetails.Capital}</h2>
+         <p style = "font-size:18px; padding:0px 8px;">${countryDetails.Currency}</p>
+         <p style = "font-size:18px; padding:0px 8px;">${countryDetails.Language}</p>
+         <p style = "font-size:18px; padding:0px 8px;">${countryDetails.FamousPlace}</p>
+         <p style = "font-size:18px; padding:0px 8px;">${countryDetails.FunFact}</p>  
+         </div>`;
+        }
+      });
+    </script>
   </body>
 </html>
